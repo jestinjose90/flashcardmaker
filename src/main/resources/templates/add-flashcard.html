@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>FlashCardMaker</h1>
+
+<form th:action="@{/flashcard}" th:object="${flashcard}" method="post">
+    <label th:text="${topic}"></label>
+    <input id="Topic" type="text" th:field="*{topic}" >
+
+    <br><br><br>
+
+    <label th:text="${term}"></label>
+    <input id="Term" type="text" th:field="*{term}" >
+
+    <br><br>
+
+    <label th:text="${definition}"></label>
+    <input id="Definition" type="text" th:field="*{definition}" >
+
+
+
+    <br><br><br>
+
+    <label th:text="${term}"></label>
+    <input id="Term-2" type="text" th:field="*{term}" >
+
+    <br><br>
+
+    <label th:text="${definition}"></label>
+    <input id="Definition-2" type="text" th:field="*{definition}" >
+
+    <br><br><br>
+
+    <input type="submit" value="Add">
+</form>
+
+</body>
+</html>
