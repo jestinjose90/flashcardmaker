@@ -2,12 +2,12 @@
 <html lang="en"
 xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <th:block th:insert="fragments/base :: headAttributes"></th:block>
+    <title>Add Flashcard</title>
 </head>
 <body>
 
-<h1>FlashCardMaker</h1>
+<div th:replace="fragments/base :: header"></div>
 
 <form th:action="@{/flashcard}" th:object="${flashcard}" method="post">
     <label th:text="${topic}"></label>
@@ -39,6 +39,9 @@ xmlns:th="http://www.thymeleaf.org">
 
     <input type="submit" value="Add">
 </form>
+ <br><br>
+<div th:replace="fragments/base :: footer"></div>
 
 </body>
+<th:block th:replace="fragments/base :: scripts"></th:block>
 </html>
