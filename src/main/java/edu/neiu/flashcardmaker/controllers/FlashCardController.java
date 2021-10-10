@@ -4,6 +4,8 @@ import edu.neiu.flashcardmaker.models.FlashCard;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -17,6 +19,16 @@ public class FlashCardController {
         model.addAttribute("definition", "Enter the definition");
         model.addAttribute("flashcard", new FlashCard());
         return "add-flashcard";
+
+    }
+
+    @PostMapping
+    public String handleFlashCardForm(@ModelAttribute("flashcard") FlashCard flashcard){
+        System.out.println("Topic:" + flashcard.getTopic());
+        System.out.println(("Term:"  + flashcard.getTerm()));
+        System.out.println("Definition:" + flashcard.getDefinition());
+
+        return "redirect:/";
 
     }
 
