@@ -6,38 +6,61 @@ xmlns:th="http://www.thymeleaf.org">
     <title>Add Flashcard</title>
 </head>
 <body>
-
+<div th:replace="fragments/base :: navigation"></div>
 <div th:replace="fragments/base :: header"></div>
 
 <form th:action="@{/flashcard}" th:object="${flashcard}" method="post">
-    <label th:text="${topic}"></label>
-    <input id="Topic" type="text" th:field="*{topic}" >
+    <div class="container-fluid">
+        <div class="row justify-content-center">
 
-    <br><br><br>
+            <div class="col-8 col-md-3">
+                <label for="topic" class="col-form-label">Enter the  Topic </label>
+                <input class="form-control" id="Topic" type="text"
+                th:field="*{topic}"/>
+            </div>
+        </div>
 
-    <label th:text="${term}"></label>
-    <input id="Term" type="text" th:field="*{term}" >
+        <div class="row justify-content-center">
+            <div class="col-8 col-md-3">
+                <label for="topic" class="col-form-label">Enter the  Term </label>
+                <input class="form-control" id="Term" type="text"
+                       th:field="*{term}"/>
+            </div>
+        </div>
 
-    <br><br>
+        <div class="row justify-content-center">
+            <div class="col-8 col-md-3">
+                <label for="topic" class="col-form-label">Enter the  Definition </label>
+                <input class="form-control" id="definition" type="text"
+                       th:field="*{definition}"/>
+            </div>
+        </div>
 
-    <label th:text="${definition}"></label>
-    <input id="Definition" type="text" th:field="*{definition}" >
+        <div class="row justify-content-center ">
+            <div class="col-8 col-md-3">
+                <label for="topic" class="col-form-label">Enter the  Term </label>
+                <input class="form-control" id="Term-2" type="text"
+                       th:field="*{term}"/>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-8 col-md-3">
+                <label for="topic" class="col-form-label">Enter the  Definition </label>
+                <input class="form-control" id="Definition-2" type="text"
+                       th:field="*{definition}"/>
+            </div>
+        </div>
 
 
+        <div class="row justify-content-center">
+            <div class="col-8 col-md-3">
+                <input  class="btn btn-light btn-outline-dark" type="submit" value="Add">
+            </div>
+        </div>
+    </div>
+</div>
 
-    <br><br><br>
-
-    <label th:text="${term}"></label>
-    <input id="Term-2" type="text" th:field="*{term}" >
-
-    <br><br>
-
-    <label th:text="${definition}"></label>
-    <input id="Definition-2" type="text" th:field="*{definition}" >
-
-    <br><br><br>
-
-    <input type="submit" value="Add">
 </form>
  <br><br>
 <div th:replace="fragments/base :: footer"></div>
