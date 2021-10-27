@@ -1,6 +1,8 @@
 package edu.neiu.flashcardmaker.controllers;
 
+import edu.neiu.flashcardmaker.data.FlashCardRepository;
 import edu.neiu.flashcardmaker.models.FlashCard;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/flashcard")
 public class FlashCardController {
+
+    private FlashCardRepository flashcardrepo;
+
+@Autowired
+    public FlashCardController(FlashCardRepository flashcardrepo){
+        this.flashcardrepo = flashcardrepo;
+    }
 
     @GetMapping
     public String addFlashCard(Model model) {
@@ -24,9 +33,7 @@ public class FlashCardController {
 
     @PostMapping
     public String handleFlashCardForm(@ModelAttribute("flashcard") FlashCard flashcard){
-        System.out.println("Topic:" + flashcard.getTopic());
-        System.out.println(("Term:"  + flashcard.getTerm()));
-        System.out.println("Definition:" + flashcard.getDefinition());
+     this.flashcardrepo.save(flashcard);
 
         return "redirect:/";
 
