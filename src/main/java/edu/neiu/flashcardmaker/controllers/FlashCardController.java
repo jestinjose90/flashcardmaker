@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/flashcard")
@@ -21,7 +22,8 @@ public class FlashCardController {
 
 @Autowired
     public FlashCardController(FlashCardRepository flashcardrepo){
-        this.flashcardrepo = flashcardrepo;
+
+    this.flashcardrepo = flashcardrepo;
     }
 
     @GetMapping
@@ -31,13 +33,20 @@ public class FlashCardController {
 
     }
 
+    @GetMapping("/display")
+    public String displayFlashCard(Model model){
+    List<FlashCard> flashcards = (List<FlashCard>) this.flashcardrepo.findAll();
+    model.addAttribute("flashcards",flashcards);
+    return  "display-flashcards";
+    }
+
     @PostMapping
     public String handleFlashCardForm(@Valid @ModelAttribute("flashcard") FlashCard flashcard, Errors errors){
     if(errors.hasErrors())
         return "add-flashcard";
      this.flashcardrepo.save(flashcard);
 
-        return "redirect:/";
+        return "redirect:/flashcard/display";
 
     }
 

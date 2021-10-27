@@ -26,7 +26,9 @@ xmlns:th="http://www.thymeleaf.org">
     <li class="nav-item">
       <a class="nav-link" th:classappend="${#request.getServletPath() =='/' ? 'active' : ''}" th:href="@{/}">Home</a> </li>
     <li class="nav-item" >
-      <a class="nav-link" th:classappend="${#request.getServletPath() =='/flashcard' ? 'active' : ''}" th:href="@{flashcard}">Create Flashcard</a> </li>
+      <a class="nav-link" th:classappend="${#request.getServletPath() =='/flashcard' ? 'active' : ''}" th:href="@{/flashcard}">Create Flashcard</a> </li>
+    <li class="nav-item">
+      <a class="nav-link" th:classappend="${#request.getServletPath() =='/flashcard/display' ? 'active' : ''}" th:href="@{/flashcard/display}">Display Flashcards</a> </li>
 
   </ul>
 
