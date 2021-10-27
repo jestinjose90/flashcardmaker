@@ -1,6 +1,8 @@
 package edu.neiu.flashcardmaker.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
@@ -8,8 +10,12 @@ public class FlashCard {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+    @NotBlank(message = "Topic is required")
     private String topic;
+    @NotBlank(message = "Term is required")
     private String term;
+    @NotBlank(message = "Definition is required")
+    @Size(min=6, message = "Definition must be at least 6 characters ")
     private String definition;
     private LocalDateTime created;
     private LocalDateTime updated;
