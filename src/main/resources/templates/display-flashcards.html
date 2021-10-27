@@ -9,11 +9,11 @@
 <div th:replace="fragments/base :: navigation"></div>
 <div th:replace="fragments/base :: header"></div>
 
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-2">
     <div th:each="flashcard:${flashcards}">
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4 card"></div>
-        <div class="card-body bg-secondary">
+        <div class="card-body">
             <h2 class="card-title " th:text="${flashcard.topic}"></h2> <br>
             <h6 th:text="'Term: ' + ${flashcard.term}"></h6>
             <h6 th:text="'Definition: ' + ${flashcard.definition}"></h6>
