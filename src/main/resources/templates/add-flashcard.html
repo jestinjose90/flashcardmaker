@@ -7,10 +7,10 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 <body>
 <div th:replace="fragments/base :: navigation"></div>
-<div th:replace="fragments/base :: header"></div>
+
 
 <form th:action="@{/flashcard}" th:object="${flashcard}" method="post">
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
         <div class="row justify-content-center">
             <div class="col-8 col-md-3">
 

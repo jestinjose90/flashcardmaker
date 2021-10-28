@@ -3,25 +3,29 @@
 }
 
 .footer {
-    position:absolute;
+    position:fixed;;
     bottom: 0;
     width: 100%;
     height: auto;
-    line-height: 40px;
+
 
 
 
 }
+
+
 #main-img {
-    height: 200px;
-    width: 300px;
+    height: 250px;
+    width: 388px;
+}
+#Logo {
+    height: 80px;
+    margin-top:12px;
+}
+
+#Log {
+    height: 90px;
+    width: 260px;
 }
 
 
-#hello{
-    width: 300px;
-}
-#banner {
-    width:100px;
-
-}
