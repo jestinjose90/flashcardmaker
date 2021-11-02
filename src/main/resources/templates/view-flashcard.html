@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/base :: headAttributes"></th:block>
+    <meta charset="UTF-8">
+    <title>View Flashcard</title>
+</head>
+<body>
+<div th:replace="fragments/base :: navigation"></div>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <h3 class="text-center col-12">View/Edit Student</h3>
+    </div>
+</div>
+
+<form class="mt-3 mb-3" th:action="@{/flashcard/edit/{id}(id=${flashcard.id})}" th:object="${flashcard}" method="post">
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-center">
+            <div class="col-8 col-md-3">
+
+                <label for="topic" class="col-form-label">Enter the  Topic </label>
+                <input class="form-control" id="Topic" type="text"
+                       th:field="*{topic}"   placeholder="Topic"/>
+
+            </div>
+
+            <div class="row justify-content-center mb-3" >
+                <div class="col-8 col-md-3">
+                    <span class="text-danger small" th:if="${#fields.hasErrors('topic')}"
+                          th:errors="*{topic}"></span>
+                </div>
+            </div>
+
+            <div class="row justify-content-center" >
+                <div class="col-8 col-md-3">
+                    <label for="topic" class="col-form-label">Enter the  Term </label>
+                    <input class="form-control" id="Term" type="text"
+                           th:field="*{term}"  placeholder="Term"/>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                     <span class="text-danger small" th:if="${#fields.hasErrors('term')}"
+                           th:errors="*{term}"></span>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                    <label for="topic" class="col-form-label">Enter the  Definition </label>
+                    <input class="form-control" id="definition" type="text"
+                           th:field="*{definition}" placeholder="Definition"/>
+
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                     <span class="text-danger small" th:if="${#fields.hasErrors('definition')}"
+                           th:errors="*{definition}"></span>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row justify-content-center mt-3">
+                <div class="col-8 col-md-3">
+                    <input  class="btn btn-light btn-outline-dark" type="submit" value="Add">
+                    <a class="ml-2 btn btn-light btn-outline-dark" th:href="@{/flashcard/display}">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+<br><br>
+<div th:replace="fragments/base :: footer"></div>
+
+</body>
+</html>

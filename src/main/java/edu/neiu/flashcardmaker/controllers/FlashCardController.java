@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -33,6 +30,13 @@ public class FlashCardController {
 
     }
 
+    @GetMapping("/display/{id}")
+    public String showFlashCard(@PathVariable long id, Model model) {
+    FlashCard flashCard = this.flashcardrepo.findById(id).get();
+    model.addAttribute("flashcard",flashCard);
+    return "view-flashcard";
+    }
+
     @GetMapping("/display")
     public String displayFlashCard(Model model){
     List<FlashCard> flashcards = (List<FlashCard>) this.flashcardrepo.findAll();
@@ -48,7 +52,36 @@ public class FlashCardController {
 
         return "redirect:/flashcard/display";
 
+
     }
+
+    @PostMapping("/edit/{id}")
+
+    public String handleEditFlashCardForm(@PathVariable long id,@Valid @ModelAttribute("flashcard") FlashCard flashcard, Errors errors){
+        if(errors.hasErrors())
+            return "view-flashcard";
+        FlashCard eachFlashcard = this.flashcardrepo.findById(id).get();
+        updateEachFlashCard(eachFlashcard,flashcard);
+        this.flashcardrepo.save(eachFlashcard);
+
+        return "redirect:/flashcard/display";
+
+
+    }
+
+    private void updateEachFlashCard(FlashCard eachflashcard , FlashCard update) {
+    eachflashcard.setTopic(update.getTopic());
+    eachflashcard.setTerm(update.getTerm());
+    eachflashcard.setDefinition(update.getDefinition());
+
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteFlashCard(@PathVariable long id) {
+    this.flashcardrepo.deleteById(id);
+    return "redirect:/flashcard/display";
+    }
+
 
 
 

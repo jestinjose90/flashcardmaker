@@ -9,18 +9,19 @@
 <div th:replace="fragments/base :: navigation"></div>
 
 
-<div class="container-fluid mt-3 ">
+<div class="container-fluid mt-5 ">
     <div th:each="flashcard:${flashcards}">
-        <div class="col-2 col-md-4"></div>
-        <div class="col-8 col-md-4 card"></div>
-        <div class="card-body mb-5 ">
-            <h2 class="card-title " th:text="${flashcard.topic}"></h2> <br>
-            <h6 th:text="'Term: ' + ${flashcard.term}"></h6>
-            <h6 th:text="'Definition: ' + ${flashcard.definition}"></h6>
-            <h6 th:text="'Date created: ' + ${#temporals.format(flashcard.created,'dd-MM-yyy HH:mm')}"></h6>
-
-
+        <div class="row justify-content-center mb-3">
+        <div class="col-3 col-md-9"></div>
+        <div class="col-9 col-md-4 card bg-warning text-light mb-3  ">
+            <div class=" card-body ">
+            <h2 class=" card-title d-inline"  th:text="${flashcard.topic}"></h2>
+            <a th:href="@{/flashcard/display/{id}(id= ${flashcard.id})}" class="mr-8 "><i class="fas fa-eye link-primary"></i></a>
+                <a th:href="@{/flashcard/delete/{id}(id=${flashcard.id})}" class="mr-8 text-danger"><i class="fas fa-trash-alt"></i></a>
+            </div>
+            </div>
         </div>
+
     </div>
 </div>
 
