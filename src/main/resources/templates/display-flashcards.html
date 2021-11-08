@@ -16,12 +16,43 @@
         <div class="col-9 col-md-4 card bg-warning text-light mb-3  ">
             <div class=" card-body ">
             <h2 class=" card-title d-inline"  th:text="${flashcard.topic}"></h2>
-            <a th:href="@{/flashcard/display/{id}(id= ${flashcard.id})}" class="mr-8 "><i class="fas fa-eye link-primary"></i></a>
-                <a th:href="@{/flashcard/delete/{id}(id=${flashcard.id})}" class="mr-8 text-danger"><i class="fas fa-trash-alt"></i></a>
+            <a th:href="@{/flashcard/display/{id}(id= ${flashcard.id})}" class="mr-8" id="edit"><i class="fas fa-eye link-primary"></i></a>
+
+
+
+
+                <button type="button"  data-bs-toggle="modal"  th:attr="data-bs-target='#delete' +${flashcard.id}"  > <i class="fas fa-trash-alt"></i></button>
+              <div class="modal fade" tabindex="-1"  aria-hidden="true" th:attr="id='delete' +${flashcard.id}"  >
+                  <div class="modal-dialog">
+                      <div class="modal-content" >
+                          <div class="modal-header">
+                              <h5 class="modal-title text-danger" id="delete"  th:text="Warning"></h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                              </button>
+                          </div>
+                          <div class="modal-body">
+                              <h5 class="text-danger">Do you want to delete the flashcard </h5>
+
+                          </div>
+
+
+                          <div class="modal-footer" >
+
+                              <a type="button" class="btn btn-secondary" th:attr="href='/flashcard/delete/' +${flashcard.id}">Yes </a>
+                              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+
+                          </div>
+
+
+
+                      </div>
+
+                  </div>
+              </div>
             </div>
             </div>
         </div>
-
+        </tr>
     </div>
 </div>
 
