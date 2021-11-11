@@ -13,29 +13,26 @@ public class FlashCard {
     private long id;
 
     @NotBlank(message = "Topic is required")
-    private String topic;
     @Column(unique = true)
+    private String topic;
+
     @NotBlank(message = "Term is required")
     private String term;
     @NotBlank(message = "Definition is required")
-    @Size(min=6, message = "Definition must be at least 6 characters ")
+    @Size(min = 6, message = "Definition must be at least 6 characters ")
     private String definition;
 
 
-
-    @Email(message = "Email not valid")
-    @Column(unique = true)
-    private String email;
     private LocalDateTime created;
     private LocalDateTime updated;
 
-    public FlashCard(){
+    public FlashCard() {
         this.topic = "";
         this.term = "";
         this.definition = "";
     }
 
-    public FlashCard(String topic , String term , String definition) {
+    public FlashCard(String topic, String term, String definition) {
         this.topic = topic;
         this.term = term;
         this.definition = definition;
@@ -72,13 +69,7 @@ public class FlashCard {
     public void setTopic(String topic) {
         this.topic = topic;
     }
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public LocalDateTime getCreated() {
         return created;
@@ -103,7 +94,7 @@ public class FlashCard {
     }
 
     @PreUpdate
-    public void onUpdate(){
+    public void onUpdate() {
         this.setUpdated(LocalDateTime.now());
     }
 

@@ -17,10 +17,10 @@ public class FlashCardController {
 
     private FlashCardRepository flashcardrepo;
 
-@Autowired
-    public FlashCardController(FlashCardRepository flashcardrepo){
+    @Autowired
+    public FlashCardController(FlashCardRepository flashcardrepo) {
 
-    this.flashcardrepo = flashcardrepo;
+        this.flashcardrepo = flashcardrepo;
     }
 
     @GetMapping
@@ -32,23 +32,23 @@ public class FlashCardController {
 
     @GetMapping("/display/{id}")
     public String showFlashCard(@PathVariable long id, Model model) {
-    FlashCard flashCard = this.flashcardrepo.findById(id).get();
-    model.addAttribute("flashcard",flashCard);
-    return "view-flashcard";
+        FlashCard flashCard = this.flashcardrepo.findById(id).get();
+        model.addAttribute("flashcard", flashCard);
+        return "view-flashcard";
     }
 
     @GetMapping("/display")
-    public String displayFlashCard(Model model){
-    List<FlashCard> flashcards = (List<FlashCard>) this.flashcardrepo.findAll();
-    model.addAttribute("flashcards",flashcards);
-    return  "display-flashcards";
+    public String displayFlashCard(Model model) {
+        List<FlashCard> flashcards = (List<FlashCard>) this.flashcardrepo.findAll();
+        model.addAttribute("flashcards", flashcards);
+        return "display-flashcards";
     }
 
     @PostMapping
-    public String handleFlashCardForm(@Valid @ModelAttribute("flashcard") FlashCard flashcard, Errors errors){
-    if(errors.hasErrors())
-        return "add-flashcard";
-     this.flashcardrepo.save(flashcard);
+    public String handleFlashCardForm(@Valid @ModelAttribute("flashcard") FlashCard flashcard, Errors errors) {
+        if (errors.hasErrors())
+            return "add-flashcard";
+        this.flashcardrepo.save(flashcard);
 
         return "redirect:/flashcard/display";
 
@@ -57,11 +57,11 @@ public class FlashCardController {
 
     @PostMapping("/edit/{id}")
 
-    public String handleEditFlashCardForm(@PathVariable long id,@Valid @ModelAttribute("flashcard") FlashCard flashcard, Errors errors){
-        if(errors.hasErrors())
+    public String handleEditFlashCardForm(@PathVariable long id, @Valid @ModelAttribute("flashcard") FlashCard flashcard, Errors errors) {
+        if (errors.hasErrors())
             return "view-flashcard";
         FlashCard eachFlashcard = this.flashcardrepo.findById(id).get();
-        updateEachFlashCard(eachFlashcard,flashcard);
+        updateEachFlashCard(eachFlashcard, flashcard);
         this.flashcardrepo.save(eachFlashcard);
 
         return "redirect:/flashcard/display";
@@ -69,25 +69,18 @@ public class FlashCardController {
 
     }
 
-    private void updateEachFlashCard(FlashCard eachflashcard , FlashCard update) {
-    eachflashcard.setTopic(update.getTopic());
-    eachflashcard.setTerm(update.getTerm());
-    eachflashcard.setDefinition(update.getDefinition());
+    private void updateEachFlashCard(FlashCard eachflashcard, FlashCard update) {
+        eachflashcard.setTopic(update.getTopic());
+        eachflashcard.setTerm(update.getTerm());
+        eachflashcard.setDefinition(update.getDefinition());
 
     }
 
     @GetMapping("/delete/{id}")
     public String deleteFlashCard(@PathVariable long id) {
-    this.flashcardrepo.deleteById(id);
-    return "redirect:/flashcard/display";
+        this.flashcardrepo.deleteById(id);
+        return "redirect:/flashcard/display";
     }
-
-
-
-
-
-
-
 
 
 }

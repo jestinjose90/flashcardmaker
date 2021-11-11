@@ -20,24 +20,24 @@
         <div class="row justify-content-center">
             <div class="col-8 col-md-3">
 
-                <label for="topic" class="col-form-label">Enter the  Topic </label>
+                <label for="topic" class="col-form-label">Enter the Topic </label>
                 <input class="form-control" id="Topic" type="text"
-                       th:field="*{topic}"   placeholder="Topic"/>
+                       th:field="*{topic}" placeholder="Topic"/>
 
             </div>
 
-            <div class="row justify-content-center mb-3" >
+            <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-3">
                     <span class="text-danger small" th:if="${#fields.hasErrors('topic')}"
                           th:errors="*{topic}"></span>
                 </div>
             </div>
 
-            <div class="row justify-content-center" >
+            <div class="row justify-content-center">
                 <div class="col-8 col-md-3">
-                    <label for="topic" class="col-form-label">Enter the  Term </label>
+                    <label for="topic" class="col-form-label">Enter the Term </label>
                     <input class="form-control" id="Term" type="text"
-                           th:field="*{term}"  placeholder="Term"/>
+                           th:field="*{term}" placeholder="Term"/>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-8 col-md-3">
-                    <label for="topic" class="col-form-label">Enter the  Definition </label>
+                    <label for="topic" class="col-form-label">Enter the Definition </label>
                     <input class="form-control" id="definition" type="text"
                            th:field="*{definition}" placeholder="Definition"/>
 
@@ -64,12 +64,9 @@
             </div>
 
 
-
-
-
             <div class="row justify-content-center mt-3">
                 <div class="col-8 col-md-3">
-                    <input  class="btn btn-light btn-outline-dark" type="submit" value="Add">
+                    <input class="btn btn-light btn-outline-dark" type="submit" value="Add">
                     <a class="ml-2 btn btn-light btn-outline-dark" th:href="@{/flashcard/display}">Cancel</a>
                 </div>
             </div>

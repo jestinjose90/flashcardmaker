@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:insert="fragments/base :: headAttributes"></th:block>
     <title>Add Flashcard</title>
@@ -14,26 +14,26 @@ xmlns:th="http://www.thymeleaf.org">
         <div class="row justify-content-center">
             <div class="col-8 col-md-3">
 
-                <label for="topic" class="col-form-label">Enter the  Topic </label>
+                <label for="topic" class="col-form-label">Enter the Topic </label>
                 <input class="form-control" id="Topic" type="text"
-                th:field="*{topic}"   placeholder="Topic"/>
+                       th:field="*{topic}" placeholder="Topic"/>
 
-        </div>
+            </div>
 
-            <div class="row justify-content-center mb-3" >
+            <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-3">
                     <span class="text-danger small" th:if="${#fields.hasErrors('topic')}"
                           th:errors="*{topic}"></span>
                 </div>
             </div>
 
-        <div class="row justify-content-center" >
-            <div class="col-8 col-md-3">
-                <label for="topic" class="col-form-label">Enter the  Term </label>
-                <input class="form-control" id="Term" type="text"
-                       th:field="*{term}"  placeholder="Term"/>
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                    <label for="topic" class="col-form-label">Enter the Term </label>
+                    <input class="form-control" id="Term" type="text"
+                           th:field="*{term}" placeholder="Term"/>
+                </div>
             </div>
-        </div>
 
             <div class="row justify-content-center">
                 <div class="col-8 col-md-3">
@@ -42,14 +42,14 @@ xmlns:th="http://www.thymeleaf.org">
                 </div>
             </div>
 
-        <div class="row justify-content-center">
-            <div class="col-8 col-md-3">
-                <label for="topic" class="col-form-label">Enter the  Definition </label>
-                <input class="form-control" id="definition" type="text"
-                       th:field="*{definition}" placeholder="Definition"/>
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                    <label for="topic" class="col-form-label">Enter the Definition </label>
+                    <input class="form-control" id="definition" type="text"
+                           th:field="*{definition}" placeholder="Definition"/>
 
+                </div>
             </div>
-        </div>
             <div class="row justify-content-center">
                 <div class="col-8 col-md-3">
                      <span class="text-danger small" th:if="${#fields.hasErrors('definition')}"
@@ -58,21 +58,16 @@ xmlns:th="http://www.thymeleaf.org">
             </div>
 
 
-
-
-
-
-
-        <div class="row justify-content-center mt-3">
-            <div class="col-8 col-md-3">
-                <input  class="btn btn-light btn-outline-dark" type="submit" value="Add">
+            <div class="row justify-content-center mt-3">
+                <div class="col-8 col-md-3">
+                    <input class="btn btn-light btn-outline-dark" type="submit" value="Add">
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 </form>
- <br><br>
+<br><br>
 <div th:replace="fragments/base :: footer"></div>
 
 </body>

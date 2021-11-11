@@ -1,62 +1,63 @@
 <!DOCTYPE html>
 <html lang="en"
-xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-  <th:block th:fragment="headAttributes">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link th:href="@{/css/base.css}" rel="stylesheet">
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
-    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.2/css/all.min.css}">
-    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.2/css/fontawesome.min.css}">
-  </th:block>
+    <th:block th:fragment="headAttributes">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link th:href="@{/css/base.css}" rel="stylesheet">
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
+        <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.2/css/all.min.css}">
+        <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.2/css/fontawesome.min.css}">
+    </th:block>
     <title>Title</title>
 
 </head>
 <body>
 <nav th:fragment="navigation" class="navbar navbar-expand-lg  navbar-light bg-light border border-light">
-  <a class="navbar-brand col-5 col-md-6" th:href="@{/}">
-    <img id="Logo" th:src="@{/images/hello.png}">
-    <img id="Log" th:src="@{/images/header.png}"></a>
+    <a class="navbar-brand col-5 col-md-6" th:href="@{/}">
+        <img id="Logo" th:src="@{/images/hello.png}">
+        <img id="Log" th:src="@{/images/header.png}"></a>
 
 
+    <button class="navbar-toggler col-12 " type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarContent" aria-controls="navbarContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
 
-<button class="navbar-toggler col-12 " type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarContent" aria-controls="navbarContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-
-</button>
-<div class="collapse navbar-collapse " id="navbarContent">
-  <ul class="navbar-nav mr-auto ">
-    <li class="nav-item">
-      <a class="nav-link" th:classappend="${#request.getServletPath() =='/' ? 'active' : ''}" th:href="@{/}">Home</a> </li>
-    <li class="nav-item" >
-      <a class="nav-link" th:classappend="${#request.getServletPath() =='/flashcard' ? 'active' : ''}" th:href="@{/flashcard}">Create Flashcard</a> </li>
-    <li class="nav-item">
-      <a class="nav-link" th:classappend="${#request.getServletPath() =='/flashcard/display' ? 'active' : ''}" th:href="@{/flashcard/display}">Display Flashcards</a> </li>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarContent">
+        <ul class="navbar-nav mr-auto ">
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${#request.getServletPath() =='/' ? 'active' : ''}" th:href="@{/}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${#request.getServletPath() =='/flashcard' ? 'active' : ''}"
+                   th:href="@{/flashcard}">Create Flashcard</a></li>
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${#request.getServletPath() =='/flashcard/display' ? 'active' : ''}"
+                   th:href="@{/flashcard/display}">Display Flashcards</a></li>
 
 
-  </ul>
+        </ul>
 
 
-</div>
+    </div>
 
 
 </nav>
 
 
-
 </div>
 <footer class="footer bg-dark bg-opacity-20" th:fragment="footer">
-  <div class="container text-center">
-    <span class="text-muted"> Jestin Jose@ Copyright 2021</span>
-  </div>
+    <div class="container text-center">
+        <span class="text-muted"> Jestin Jose@ Copyright 2021</span>
+    </div>
 </footer>
 
 </body>
 <th:block th:fragment="scripts">
-  <script th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
-  <script th:src="@{/webjars/bootstrap/5.1.1/js/bootstrap.min.js}"> </script>
+    <script th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.1.1/js/bootstrap.min.js}"></script>
 </th:block>
 </html>

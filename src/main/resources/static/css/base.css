@@ -1,14 +1,12 @@
 .btn {
-    width:35%;
+    width: 35%;
 }
 
 .footer {
-    position:fixed;;
+    position: fixed;;
     bottom: 0;
     width: 100%;
     height: auto;
-
-
 
 
 }
@@ -18,9 +16,10 @@
     height: 250px;
     width: 388px;
 }
+
 #Logo {
     height: 80px;
-    margin-top:12px;
+    margin-top: 12px;
 }
 
 #Log {
