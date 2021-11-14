@@ -12,8 +12,8 @@
 <div class="container-fluid mt-5 ">
     <div th:each="flashcard:${flashcards}">
         <div class="row justify-content-center mb-3">
-            <div class="col-12"></div>
-            <div class="col-6 col-md-6 card bg-warning text-light mb-3  ">
+            <div class="col-6"></div>
+            <div class= "col-6  card bg-warning text-light mb-3">
                 <div class=" card-body ">
                     <h2 class=" card-title d-inline" th:text="${flashcard.topic}"></h2>
                     <a th:href="@{/flashcard/display/{id}(id= ${flashcard.id})}" class="mr-8" id="edit"><i
