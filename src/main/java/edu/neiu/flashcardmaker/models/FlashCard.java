@@ -13,7 +13,7 @@ public class FlashCard {
     private long id;
 
     @NotBlank(message = "Topic is required")
-    @Column(unique = true)
+    @Column(unique = true, length = 100)
     private String topic;
 
     @NotBlank(message = "Term is required")

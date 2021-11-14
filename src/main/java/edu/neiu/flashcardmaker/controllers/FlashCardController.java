@@ -3,6 +3,7 @@ package edu.neiu.flashcardmaker.controllers;
 import edu.neiu.flashcardmaker.data.FlashCardRepository;
 import edu.neiu.flashcardmaker.models.FlashCard;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -48,8 +49,12 @@ public class FlashCardController {
     public String handleFlashCardForm(@Valid @ModelAttribute("flashcard") FlashCard flashcard, Errors errors) {
         if (errors.hasErrors())
             return "add-flashcard";
-        this.flashcardrepo.save(flashcard);
-
+        try {
+            this.flashcardrepo.save(flashcard);
+        } catch (DataIntegrityViolationException e) {
+           errors.rejectValue("topic", "invalidTopic","Topic already exist . Please enter another topic");
+           return "add-flashcard";
+        }
         return "redirect:/flashcard/display";
 
 
