@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/base :: headAttributes"></th:block>
+    <title>Register Here</title>
+</head>
+<body>
+<div th:replace="fragments/base :: navigation"></div>
+
+<form th:action="@{/register}" th:object="${User}" method="post">
+    <div class="container-fluid mt-2">
+        <div class="row justify-content-center">
+            <div class="col-8 col-md-3">
+
+                <label for="email" class="col-form-label">Enter Email </label>
+                <input class="form-control" id="email" type="email"
+                       th:field="*{email}" placeholder="Email" required/>
+
+            </div>
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-3">
+                    <span class="text-danger small" th:if="${#fields.hasErrors('email')}"
+                          th:errors="*{email}"></span>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                    <label for="username" class="col-form-label">Enter Username </label>
+                    <input class="form-control" id="username" type="text"
+                           th:field="*{username}" placeholder="Username" required/>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                     <span class="text-danger small" th:if="${#fields.hasErrors('username')}"
+                           th:errors="*{username}"></span>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                    <label for="password" class="col-form-label">Enter Password </label>
+                    <input class="form-control" id="password" type="password"
+                           th:field="*{password}" placeholder="Password" required/>
+
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                     <span class="text-danger small" th:if="${#fields.hasErrors('password')}"
+                           th:errors="*{password}"></span>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                    <label for="firstname" class="col-form-label">Enter FirstName </label>
+                    <input class="form-control" id="firstname" type="text"
+                           th:field="*{firstName}" placeholder="FirstName" required/>
+
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                     <span class="text-danger small" th:if="${#fields.hasErrors('firstName')}"
+                           th:errors="*{firstName}"></span>
+                </div>
+            </div>
+
+
+
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                    <label for="lastname" class="col-form-label">Enter LastName </label>
+                    <input class="form-control" id="lastname" type="text"
+                           th:field="*{lastName}" placeholder="LastName" required/>
+
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                     <span class="text-danger small" th:if="${#fields.hasErrors('lastName')}"
+                           th:errors="*{lastName}"></span>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center mt-3">
+                <div class="col-8 col-md-3">
+                    <input class="button btn-light btn-outline-dark" type="submit" value="Register">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+<div th:replace="fragments/base :: footer"></div>
+</body>
+<th:block th:replace="fragments/base :: scripts"></th:block>
+</html>

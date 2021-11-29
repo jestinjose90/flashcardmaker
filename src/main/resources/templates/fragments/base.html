@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <th:block th:fragment="headAttributes">
         <meta charset="UTF-8">
@@ -33,16 +34,16 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" th:classappend="${#request.getServletPath() =='/flashcard' ? 'active' : ''}"
-                   th:href="@{/flashcard}">Create Flashcard</a></li>
+                  th:href="@{/flashcard}">Create Flashcard</a></li>
             <li class="nav-item">
                 <a class="nav-link" th:classappend="${#request.getServletPath() =='/flashcard/display' ? 'active' : ''}"
-                   th:href="@{/flashcard/display}">Display Flashcards</a></li>
+                    th:href="@{/flashcard/display}">Display Flashcards</a></li>
 
 
 
 
         </ul>
-            <a th:href="@{/logout}" class="btn btn-light btn-outline-dark">Logout</a>
+            <a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="btn btn-light btn-outline-dark">Logout</a>
 
 
     </div>
